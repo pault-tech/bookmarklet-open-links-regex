@@ -36,8 +36,6 @@ if (nopenStrOrig.indexOf(splitChar)>=0) {
 } else {
     nopenStr=nopenStrOrig;
 }
-console.log("blet_open_selected_links_kaggle.ns6blet:5 nopenStr="+JSON.stringify(nopenStr));
-console.log("blet_open_selected_links_kaggle.ns6blet:6 skipStr="+JSON.stringify(skipStr));
 
 var n_to_open, dl, dll, i;
 dl = document.links;
@@ -48,9 +46,6 @@ skipped=0;
 j=0;
 n=parseInt(nopenStr);
 n = n <=0 ? 1 : n;
-console.log("blet_open_selected_links_kaggle.ns6blet:18 skipn="+JSON.stringify(skipn));
-console.log("blet_open_selected_links_kaggle.ns6blet:19 j="+JSON.stringify(j));
-console.log("blet_open_selected_links_kaggle.ns6blet:20 n="+JSON.stringify(n));
 
             if (!openLinks) {
               newWin = window.open();
@@ -61,7 +56,6 @@ var seen= new Set();
 
 for (i=0; i< dll && j < n; i++){
     let url=dl[i].href;
-    console.log("blet_open_selected_links_kaggle.ns6blet:29 i="+JSON.stringify(i));/*or use custome log fn snippet*/
 
     if (
         (
@@ -81,7 +75,6 @@ for (i=0; i< dll && j < n; i++){
             {
                 url = url.substring(0,url.length-9);
             }
-            console.log("blet_open_selected_links_kaggle.ns6blet:29  url="+JSON.stringify( url));/*or use custome log fn snippet*/
 
             seen.add(url);
             if (openLinks) {
@@ -90,13 +83,12 @@ for (i=0; i< dll && j < n; i++){
             else
             {
               newWin.document.write('<a href=\'' +url+ '\'>'+dl[i].innerHTML+'</a><br>");
-              console.log('<a href=\'' +url+ '\'>'+dl[i].innerHTML+'</a><br>");
             }
 
             j++;
         }
     }else{
-        console.log("fail check: blet_open_selected_links_kaggle.ns6blet:29  url="+JSON.stringify( url));/*or use custome log fn snippet*/
+        console.log("fail check:  url="+JSON.stringify( url));
 
     }
 }
